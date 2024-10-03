@@ -6,9 +6,12 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
+  Alert
 } from "react-native";
 import { Colors } from "./Colors";
 import { useGameState } from "./useGameState";
+import Board from "./Board";
 
 const X = require("../assets/X.png");
 const O = require("../assets/O.png");
@@ -18,7 +21,11 @@ export default function Game() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello Atlas</Text>
+      <Text style={styles.text}>Tic-Tac-Toe</Text>
+	  <Board />
+	<Pressable style={styles.button} onPress={reset} >
+		<Text style={styles.buttonText}> Restart </Text>
+	</Pressable>
     </View>
   );
 }
@@ -34,5 +41,17 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#fff",
+	fontSize: 55,
+	fontWeight: "bold"
   },
+  button: {
+	backgroundColor: Colors.teal,
+	padding: 10,
+	borderRadius: 7,
+	marginTop: 10,
+  },
+  buttonText: {
+	fontSize: 16,
+  }
+
 });
